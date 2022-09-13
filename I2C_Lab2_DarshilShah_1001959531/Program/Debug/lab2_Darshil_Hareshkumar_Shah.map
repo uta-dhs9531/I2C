@@ -1,0 +1,260 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.5                     
+******************************************************************************
+>> Linked Thu Sep  8 14:13:22 2022
+
+OUTPUT FILE NAME:   <lab2_Darshil_Hareshkumar_Shah.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000ff5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000109c  0003ef64  R  X
+  SRAM                  20000000   00008000  00000201  00007dff  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000109c   0000109c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000e1c   00000e1c    r-x .text
+  00001088    00001088    00000014   00000014    r-- .cinit
+20000000    20000000    00000201   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000001   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000e1c     
+                  0000026c    000007e4     gpio.obj (.text)
+                  00000a50    000003c4     i2c0.obj (.text)
+                  00000e14    000000d4     nvic.obj (.text)
+                  00000ee8    000000c8     I2C_Lab2_DarshilShah_1001959531.obj (.text)
+                  00000fb0    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00000ff4    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001028    00000020     wait.obj (.text)
+                  00001048    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001064    00000010     clock.obj (.text)
+                  00001074    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00001080    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001084    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    00001088    00000014     
+                  00001088    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001090    00000004     (__TI_handler_table)
+                  00001094    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    00000001     UNINITIALIZED
+                  20000200    00000001     (.common:INTCAPregValue)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                                code   ro data   rw data
+       ------                                ----   -------   -------
+    .\
+       gpio.obj                              2020   0         0      
+       i2c0.obj                              964    0         0      
+       tm4c123gh6pm_startup_ccs.obj          12     620       0      
+       nvic.obj                              212    0         0      
+       I2C_Lab2_DarshilShah_1001959531.obj   200    0         1      
+       wait.obj                              32     0         0      
+       clock.obj                             16     0         0      
+    +--+-------------------------------------+------+---------+---------+
+       Total:                                3456   620       1      
+                                                                     
+    C:\ti\ccs1120\ccs\tools\compiler\ti-cgt-arm_20.2.5.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       autoinit.c.obj                        68     0         0      
+       boot_cortex_m.c.obj                   52     0         0      
+       copy_zero_init.c.obj                  28     0         0      
+       exit.c.obj                            4      0         0      
+       pre_init.c.obj                        4      0         0      
+    +--+-------------------------------------+------+---------+---------+
+       Total:                                156    0         0      
+                                                                     
+       Stack:                                0      0         512    
+       Linker Generated:                     0      20        0      
+    +--+-------------------------------------+------+---------+---------+
+       Grand Total:                          3612   640       513    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001094 records: 1, size/record: 8, table size: 8
+	.bss: load addr=00001088, load size=00000008 bytes, run addr=20000200, run size=00000001 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001090 records: 1, size/record: 4, table size: 4
+	index: 0, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00001085  C$$EXIT                       
+00000ee9  GPIOE_isr                     
+20000200  INTCAPregValue                
+00001075  ResetISR                      
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00001094  __TI_CINIT_Base               
+0000109c  __TI_CINIT_Limit              
+00001090  __TI_Handler_Table_Base       
+00001094  __TI_Handler_Table_Limit      
+00000fb1  __TI_auto_init_nobinit_nopinit
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001049  __TI_zero_init_nomemset       
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00000ff5  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001081  _system_pre_init              
+00001085  abort                         
+ffffffff  binit                         
+000008c1  clearPinInterrupt             
+00000e4d  disableNvicInterrupt          
+0000089d  disablePinInterrupt           
+000005d5  disablePinPulldown            
+0000058d  disablePinPullup              
+00000329  disablePort                   
+00000e15  enableNvicInterrupt           
+00000879  enablePinInterrupt            
+000005b1  enablePinPulldown             
+0000055f  enablePinPullup               
+0000026d  enablePort                    
+00000000  g_pfnVectors                  
+0000090b  getPinValue                   
+000009c1  getPortValue                  
+00000a51  initI2c0                      
+00001065  initSystemClockTo40Mhz        
+00000de9  isI2c0Error                   
+00000f1b  main                          
+00000d9b  pollI2c0Address               
+00000ae1  readI2c0Data                  
+00000c25  readI2c0Register              
+00000c83  readI2c0Registers             
+00000493  selectPinAnalogInput          
+00000445  selectPinDigitalInput         
+000007af  selectPinInterruptBothEdges   
+0000075f  selectPinInterruptFallingEdge 
+00000805  selectPinInterruptHighLevel   
+0000083f  selectPinInterruptLowLevel    
+0000070f  selectPinInterruptRisingEdge  
+000003f7  selectPinOpenDrainOutput      
+000003a9  selectPinPushPullOutput       
+00000e85  setNvicInterruptPriority      
+000005fd  setPinAuxFunction             
+000004e3  setPinCommitControl           
+000008e5  setPinValue                   
+00000945  setPortValue                  
+00001029  waitMicrosecond               
+00000aab  writeI2c0Data                 
+00000b15  writeI2c0Register             
+00000b6b  writeI2c0Registers            
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  enablePort                    
+00000329  disablePort                   
+000003a9  selectPinPushPullOutput       
+000003f7  selectPinOpenDrainOutput      
+00000445  selectPinDigitalInput         
+00000493  selectPinAnalogInput          
+000004e3  setPinCommitControl           
+0000055f  enablePinPullup               
+0000058d  disablePinPullup              
+000005b1  enablePinPulldown             
+000005d5  disablePinPulldown            
+000005fd  setPinAuxFunction             
+0000070f  selectPinInterruptRisingEdge  
+0000075f  selectPinInterruptFallingEdge 
+000007af  selectPinInterruptBothEdges   
+00000805  selectPinInterruptHighLevel   
+0000083f  selectPinInterruptLowLevel    
+00000879  enablePinInterrupt            
+0000089d  disablePinInterrupt           
+000008c1  clearPinInterrupt             
+000008e5  setPinValue                   
+0000090b  getPinValue                   
+00000945  setPortValue                  
+000009c1  getPortValue                  
+00000a51  initI2c0                      
+00000aab  writeI2c0Data                 
+00000ae1  readI2c0Data                  
+00000b15  writeI2c0Register             
+00000b6b  writeI2c0Registers            
+00000c25  readI2c0Register              
+00000c83  readI2c0Registers             
+00000d9b  pollI2c0Address               
+00000de9  isI2c0Error                   
+00000e15  enableNvicInterrupt           
+00000e4d  disableNvicInterrupt          
+00000e85  setNvicInterruptPriority      
+00000ee9  GPIOE_isr                     
+00000f1b  main                          
+00000fb1  __TI_auto_init_nobinit_nopinit
+00000ff5  _c_int00_noargs               
+00001029  waitMicrosecond               
+00001049  __TI_zero_init_nomemset       
+00001065  initSystemClockTo40Mhz        
+00001075  ResetISR                      
+00001081  _system_pre_init              
+00001085  C$$EXIT                       
+00001085  abort                         
+00001090  __TI_Handler_Table_Base       
+00001094  __TI_CINIT_Base               
+00001094  __TI_Handler_Table_Limit      
+0000109c  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  INTCAPregValue                
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[68 symbols]
